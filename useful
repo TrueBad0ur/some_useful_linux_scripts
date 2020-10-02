@@ -1,0 +1,398 @@
+allow all incomings 443 port
+ufw allow https
+
+sudo service bluetooth start
+
+pty/tty:
+/dev/pts/numb
+
+
+C compile:
+gcc -no-pie -fno-stack-protector -z execstack -m32 -g file.c -o file
+
+
+Wifi-manager:
+wicd-gtk
+
+
+Turn off randomization of adresses in stack:
+echo 0 > /proc/sys/kernel/randomize_va_space
+
+
+Confs of all connected wifis
+sudo nano /etc/wicd/wireless-settings.conf
+
+sudo systemctl start tor
+tor             - 1-st terminal
+. torsocks on   - 2nd terminal
+
+
+cheese - camera
+
+qemu
+arm_now start mips32el
+arm_now start mips64el-n32
+
+nc -l -p 1337 -e /bin/bash
+
+tmux
+copy:
+ctrl+b [
+ctrl+space
+ctrl+w
+ctrl+b ]
+
+sudo foremost -r png -i /dev/sda1
+
+sudo service docker start
+
+docker-compose up -d
+docker-compose stop
+docker-compose start
+
+https://proglib.io/p/docker/
+-d - daemon
+-f - dynamically follow stream from file
+ps -q - show just the id of the container
+-p - HOST PORT:CONTAINER PORT
+-v - HOST DIRECTORY:CONTAINER DIRECTORY
+-t - sets the lavel name in the image
+
+sudo docker run -d alpine /bin/sh -c "while true; do echo '0'; sleep 3; done"
+sudo docker logs -f $(sudo docker ps -q -a)
+sudo docker ps -aq
+sudo docker rm -q -a
+sudo docker run -i -t --rm alpine /bin/sh
+sudo docker run -d --name test-nginx -p 80:80 -v $(pwd):/usr/share/nginx/html:ro nginx:latest
+
+sudo docker pull ubuntu
+sudo docker run -t -i -d ubuntu
+sudo docker exec -it ddb0dd0262cd /bin/bash
+sudo docker commit ddb0dd0262cd myubuntu
+
+
+delete all images
+docker rmi $(docker images -q)
+
+delete all containers
+docker rm $(docker ps -a -q)
+
+docker run -d -p 80:80 bwapp
+docker build . -t test-curl 
+/install.php
+
+docker create --name bwapp -p 80:80 raesene/bwapp
+docker ps -a
+docker start bwapp
+docker commit bwapp 		or 		docker commit bwapp bwapp
+docker tag b9c2542d9217 bwapp
+
+irc
+/server list
+/connect Freenode
+/join r/linux
+flash.rizon.netb
+
+mv -v $HOME/.irssi/config $HOME/.irssi/config.bak
+#r/linux   #HorribleSubs
+gcc -m32 -z execstack -fno-stack-protector -no-pie file.c -o file32
+
+
+
+_____________
+|            |
+| Metasploit |
+|____________|
+
+Samba:
+use exploit/multi/samba/usermap_script
+
+Payload:
+set payload/...
+
+    windows/meterpreter/reverse_tcp
+    java/meterpreter/reverse_tcp
+    php/meterpreter/reverse_tcp
+    php/meterpreter_reverse_tcp
+    ruby/shell_reverse_tcp
+    cmd/unix/interact
+    cmd/unix/reverse
+    cmd/unix/reverse_perl
+    cmd/unix/reverse_netcat_gaping
+    cmd/unix/reverse_netcat
+    cmd/unix/interact
+    windows/meterpreter/reverse_nonx_tcp
+    windows/meterpreter/reverse_ord_tcp
+    windows/shell/reverse_tcp
+    generic/shell_reverse_tcp
+
+Scan for directories:
+auxiliary/scanner/http/dir_scanner
+
+_________________________________________
+
+#!/bin/bash Means run this script in bash.
+
+
+#!/bin/sh means run this script in sh which is the default unix shell, which might be 
+bash or any other variant like ksh, dash, zsh, etc 
+
+sum=0
+for i in $@; do sum=$((sum+i)); done
+echo "sum = $sum"
+echo "command = $0"
+echo "PID = $$"
+exit 0
+
+$((...)) is the shell internal arithmetic expansion operator (note 
+that it supports decimal, octal and hexadecimal numbers)
+__________
+|	      |
+|arguments|
+|in cmd	  |
+|_________|
+
+$0 = represents the command or script
+$@ = stores all the arguments in a list of string
+$* = stores all the arguments as a single string
+$# = stores the number of arguments 
+$1 - $9
+$(10) .. so on
+$$ = represents the PID of a running script
+
+
+for a in "$@"; do something_with "$a"; done
+
+
+#!/bin/bash
+sum=0
+for i in $@; do sum=$((sum+i)); done
+echo "sum = $sum"
+echo "command =  $0"
+echo "PID = $$"
+exit 0
+
+_________
+|	     |
+|  EOF	 |
+|here    |
+|document|
+|________|
+
+Gives an opportunity for multi-line typing
+You don't have to name it as EOF, it's just your custom tag, you can name it ANDREY, 
+but at the end of multi-lines you'll have to write ANDREY too
+cat <<EOF > tor
+
+$ cat <<EOF > print.sh
+#!/bin/bash
+echo \$PWD
+echo $PWD
+EOF
+
+The print.sh file now contains:
+
+#!/bin/bash
+echo $PWD
+echo /home/user
+________
+|	    |
+|< vs <<|
+|<<<	|
+|_______|
+<< - here document
+<<< - here string
+
+echo lol > file		; In file: lol
+echo kek > file		; In file: kek
+ > changes info in document
+
+echo lol > newfile	; In file: lol
+echo kek >> newfile	; In file: lol
+				   kek
+ >> adds info to documents
+
+
+________
+|	    |
+| Loops	|
+|_______|
+
+for (( ; ; )); do echo "lol"; sleep 1; done
+
+for i in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+for i in {1..10}
+do
+  echo 'lol'
+  sleep 5s
+done
+
+
+while [ : ]; do clear; tput cup 5 5; date; tput cup 6 5; echo "Hostname : $(hostname)"; sleep 1; done
+
+
+FILES="$@"
+for i in $FILES
+do
+        echo $i
+done
+
+while [ : ]; do clear; netstat -tlnp; tput cup 0 5; sleep 1; done
+
+	
+_________
+|   	 |
+|pipe	 |
+|operator|
+|________|
+
+
+command1 | command2
+
+Any output printed by command1 is passed as input to command2
+
+cat file.txt | grep d
+grep d <> cat file.txt 
+
+
+Standard input - this is the file handle that your process reads to get information from you.
+
+Standard output - your process writes normal information to this file handle.
+
+Standard error - your process writes error information to this file handle.
+
+
+____________
+|basic	    |
+|&1 &2	    |
+|file	    |
+|descriptors|
+|___________|
+
+
+File descriptor 0 is the standard input  (stdin)
+File descriptor 1 is the standard output (stdout)
+File descriptor 2 is the standard error  (stderr)
+
+echo 'test' >test.log 2>&1
+test.log: test
+Short form: echo 'test' &> new.txt
+	    will write data or error text
+
+
+echso 'test' >test.log 2>&1
+test.log: bash: echso: command not found
+
+&>, >&, >>& and &>>
+
+ ________
+| netcat |
+|________|
+
+1 machine: netcat 192.168.0.67 9000 < file
+2 machine: netcat -l -p 9000 > lflf.tar
+
+
+
+** Show all running processes and their owners:
+	ps aux
+
+
+ _______
+|	    |
+| find	|
+|_______|
+
+find -readable -size 1033c (c - bytes)
+
+ ________
+|Cool    |
+|Scripts |
+|________|
+
+while true; do head -c 50 /dev/urandom; sleep 1; done
+___
+dd if=dev/zero of=output bs=24M count=1
+dd if=dev/zero of=output bs=1M count=24
+   input file  output file byte size
+___
+mkdir -p folder/{sub1,sub2}/{sub1,sub2,sub3}
+mkdir -p folder/{1..100}/{1..100}
+___
+disown -a && exit   -   exit without stopping processes
+___
+ltrace -e -rand ./mc1.elf   -   syscall trace  -  exclude rand functon from output
+strace - system trace
+
+gcc -static -o file file.c   -   include libraries into output file
+_________
+
+head -c 100 file # returns the first 100 bytes from the file
+tail -c 100 file # returns the last 100 bytes frim the file
+
+/dev/pts/$number - opened terminals
+echo 'lol' > /dev/pts/1 - prints lol in terminal N1
+
+
+
+sudo systemctl stop NetworkManager
+sudo systemctl disable NetworkManager
+sudo wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf -D wext
+#network={
+#       ssid="name"
+#       psk="password"
+#}
+sudo dhcpcd wlan0
+
+(if no carrier: ps aux | grep wpa && ps aux | grep dhcpcd)
+
+NetworkManager:
+nm-connection-editor
+nmcli dev wifi
+
+nmcli device wifi
+nmcli c down id wifiname
+nmcli c up id wifiname
+
+nmcli c delete id wifiname
+
+ps ax | grep "[w]pa_s" | awk '{ print $1; }'
+
+awk '/pears/ {print}' zzzzz
+awk '{print $1, $2, " - ", $3}' zzzzz 
+for i in `ps aux | grep firefox | awk '{print $2}'`; do kill $i; done
+________
+| ngrok |
+|_______|
+
+ngrok http -auth="admin:password" 80
+ngrok http -inspect=false 80
+ngrok http -bind-tls=true 80
+127.0.0.1:4040/inspect/http
+
+/etc/httpd/conf/httpd.conf
+
+
+python -m http.server 8000 --bind 127.0.0.1
+
+______________
+|step by step|
+|gcc 	     |
+|compilation |
+|____________|
+
+Pre-processing: via the GNU C Preprocessor (cpp.exe), which includes the headers (#include) and expands the macros (#define).
+> cpp hello.c > hello.i
+
+The resultant intermediate file "hello.i" contains the expanded source code.
+Compilation: The compiler compiles the pre-processed source code into assembly code for a specific processor.
+> gcc -S hello.i
+
+The -S option specifies to produce assembly code, instead of object code. The resultant assembly file is "hello.s".
+Assembly: The assembler (as.exe) converts the assembly code into machine code in the object file "hello.o".
+> as -o hello.o hello.s
+
+Linker: Finally, the linker (ld.exe) links the object code with the library code to produce an executable file "hello.exe".
+> ld -o hello.exe hello.o ...libraries...
+
+echo 4200 > /sys/class/backlight/intel_backlight/brightness
