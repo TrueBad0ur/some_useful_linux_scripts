@@ -173,7 +173,7 @@ echo "PID = $$"
 exit 0
 
 _________
-|	     |
+|	       |
 |  EOF	 |
 |here    |
 |document|
@@ -195,11 +195,11 @@ The print.sh file now contains:
 #!/bin/bash
 echo $PWD
 echo /home/user
-________
-|	    |
-|< vs <<|
-|<<<	|
-|_______|
+_________
+|	       |
+|< vs << |
+|<<<	   |
+|________|
 << - here document
 <<< - here string
 
@@ -214,7 +214,7 @@ echo kek >> newfile	; In file: lol
 
 
 ________
-|	    |
+|	      |
 | Loops	|
 |_______|
 
@@ -241,8 +241,8 @@ while [ : ]; do clear; netstat -tlnp; tput cup 0 5; sleep 1; done
 
 	
 _________
-|   	 |
-|pipe	 |
+|   	   |
+|pipe	   |
 |operator|
 |________|
 
@@ -265,7 +265,7 @@ Standard error - your process writes error information to this file handle.
 ____________
 |basic	    |
 |&1 &2	    |
-|file	    |
+|file	      |
 |descriptors|
 |___________|
 
@@ -299,7 +299,7 @@ test.log: bash: echso: command not found
 
 
  _______
-|	    |
+|	      |
 | find	|
 |_______|
 
@@ -377,7 +377,7 @@ python -m http.server 8000 --bind 127.0.0.1
 
 ______________
 |step by step|
-|gcc 	     |
+|gcc 	       |
 |compilation |
 |____________|
 
