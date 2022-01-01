@@ -105,6 +105,7 @@ On EFNet:
 /connect EFNet
 (no auth)
 #cracking4newbies
+#2600
 
 mv -v $HOME/.irssi/config $HOME/.irssi/config.bak
 #r/linux   #HorribleSubs
