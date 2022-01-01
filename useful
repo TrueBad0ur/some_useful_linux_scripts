@@ -87,17 +87,34 @@ docker start bwapp
 docker commit bwapp 		or 		docker commit bwapp bwapp
 docker tag b9c2542d9217 bwapp
 
-irc
+____________
+|           |
+|    IRC    |
+|___________|
 /server list
+
+search in channels:
+/list >200,<10000
+
+On FreeNode network:
 /connect Freenode
-/join r/linux
-flash.rizon.netb
+/msg NickServ REGISTER password [email]
+/msg NickServ identify password
+
+On EFNet:
+/connect EFNet
+(no auth)
+#cracking4newbies
 
 mv -v $HOME/.irssi/config $HOME/.irssi/config.bak
 #r/linux   #HorribleSubs
+
+
+______________________
+|                     |
+| Vulnurable compile  |
+|_____________________|
 gcc -m32 -z execstack -fno-stack-protector -no-pie file.c -o file32
-
-
 
 _____________
 |            |
